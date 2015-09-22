@@ -11,11 +11,15 @@ Schema = {
         email: {
             type: String,
             regEx: SimpleSchema.RegEx.Email,
-            label: "Elektronisk brefadress"
+            label: "E-post"
         },
         prog: {
             type: String,
-            label: "Inriktning, examen"
+            label: "Program"
+        },
+        inriktning: {
+            type: String,
+            label: "Inriktning, examensår"
         },
     })
 };

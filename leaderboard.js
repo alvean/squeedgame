@@ -58,7 +58,6 @@ if (Meteor.isClient) {
             }
         }
     });
-
 }
 
 // On server startup, create some players if the database is empty.
