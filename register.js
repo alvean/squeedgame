@@ -33,7 +33,7 @@ if (Meteor.isClient) {
         registrationForm: {
             onSuccess: function(formType, result) {
                 // Redirect user to game
-                window.location = "/game/" + result.token;
+                window.location = "/commitscore/" + result.token;
             }
         },
     });
