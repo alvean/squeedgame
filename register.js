@@ -15,7 +15,7 @@ Schema = {
         },
         prog: {
             type: String,
-            label: "Inriktning, examensår"
+            label: "Inriktning, examen"
         },
     })
 };
