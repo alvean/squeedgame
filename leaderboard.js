@@ -1,9 +1,6 @@
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".
 
-Players = new Mongo.Collection("players");
-Students = new Mongo.Collection("students");
-
 if (Meteor.isClient) {
     Router.route("/leaderboard");
 
