@@ -1,4 +1,3 @@
-Router.route("/game");
 
 if (Meteor.isClient) {
 
