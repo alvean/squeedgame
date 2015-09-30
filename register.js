@@ -4,20 +4,20 @@ Schema = {
             type: String,
             label: "Namn"
         },
-        phonenumber: {
+        phone: {
             type: String,
             label: "Telefonnummer"
         },
         email: {
             type: String,
             regEx: SimpleSchema.RegEx.Email,
-            label: "E-post"
+            label: "Email"
         },
         prog: {
             type: String,
             label: "Program"
         },
-        inriktning: {
+        focus: {
             type: String,
             label: "Inriktning, examensår"
         },
@@ -34,6 +34,21 @@ if (Meteor.isClient) {
             onSuccess: function(formType, result) {
                 // Redirect user to game
                 window.location = "/commitscore/" + result.token;
+                Students.insert({
+                   name: result.name,
+                   phone: result.phone,
+                   email: result.email,
+                   prog: result.prog,
+                   focus: result.focus
+
+                });
+
+                Players.insert({
+                    email: result.email,
+                    token: result.token,
+                    round: roundCounter,
+                    score: "0"
+                });
             }
         },
     });
