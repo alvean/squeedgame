@@ -4,7 +4,7 @@
     <div class="subtitle">Enter your information</div>
 
     <div class="outer">
-    {{#autoForm id="registrationForm" schema=registrationSchema type="method" meteormethod="submitRegistrationForm"}}
+    {{#autoForm id="registrationForm" schema=registrationSchema type="method" validation="blur" meteormethod="submitRegistrationForm"}}
         {{> afQuickField name="email" }}
         {{> afQuickField name="name" }}
         {{> afQuickField name="prog" }}
