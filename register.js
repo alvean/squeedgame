@@ -33,7 +33,7 @@ Schema = {
         focus: {
             type: String,
             label: "Inriktning, examensår"
-        },
+        }
     })
 };
 
@@ -45,7 +45,7 @@ if (Meteor.isClient) {
     AutoForm.hooks({
         registrationForm: {
             onSuccess: function(formType, result) {
-                Meteor.call('insertStudentPlayer', result.data);
+                Meteor.call('insertStudentPlayer', result);
 
                 // Redirect user to game
                 window.location = "/commitscore/" + result.token;
@@ -56,7 +56,7 @@ if (Meteor.isClient) {
     Template.register.helpers({
         registrationSchema: function() {
             return Schema.registrationSchema;
-        },
+        }
     });
 }
 
@@ -66,27 +66,31 @@ if (Meteor.isServer) {
             check(doc, Schema.registrationSchema);
 
             var playerToken = Meteor.uuid();
-            return {token: playerToken, data: doc};
+            return {token: playerToken, doc: doc};
         }
     });
 
     Meteor.methods({
         insertStudentPlayer: function(result) {
-            console.log(result);
+            console.log("Insert student/player", result);
 
-            Students.insert({
-                name: result.name,
-                phone: result.phone,
-                email: result.email,
-                prog: result.prog,
-                focus: result.focus
-            });
+            Students.update(
+                {email: result.doc.email},
+                {
+                    name: result.doc.name,
+                    phone: result.doc.phone,
+                    email: result.doc.email,
+                    prog: result.doc.prog,
+                    focus: result.doc.focus
+                },
+                { upsert: true }
+            );
 
             Players.insert({
-                email: result.email,
+                email: result.doc.email,
                 token: result.token,
                 round: 0,
-                score: "0"
+                score: 0
             });
         }
     });
