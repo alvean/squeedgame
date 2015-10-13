@@ -12,6 +12,8 @@
 
         <div class="subtitle">Squeed Date-IT</div>
 
+        <h2>Top score <b>{{topScore.score}}</b></h2>
+
         <ol class="leaderboard">
             {{#each players}}
             {{> player}}
@@ -24,8 +26,6 @@
             <button class="inc">Add 5 points</button>
         </div>
         {{/if}}
-
-        <button class="killify">KILL ALL!</button>
     </div>
 </template>
 

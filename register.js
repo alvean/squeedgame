@@ -89,6 +89,7 @@ if (Meteor.isServer) {
             Players.insert({
                 email: result.doc.email,
                 token: result.token,
+                name: result.doc.name,
                 round: 0,
                 score: 0
             });

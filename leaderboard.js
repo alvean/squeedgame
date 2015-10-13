@@ -11,6 +11,9 @@ if (Meteor.isClient) {
         selectedName: function () {
             var player = Players.findOne(Session.get("selectedPlayer"));
             return player && player.name;
+        },
+        topScore: function() {
+            return Players.findOne({}, {sort: {score: -1, name: 1}});
         }
     });
 
@@ -69,15 +72,10 @@ if (Meteor.isServer) {
             _.each(names, function (name) {
                 Players.insert({
                     name: name,
+                    round: 0,
                     score: Math.floor(Random.fraction() * 10) * 5
                 });
             });
         }
     });
-
-    Meteor.methods({
-        removeAllPosts: function () {
-            return Players.remove({});
-        }
-    })
 }
