@@ -48,7 +48,7 @@ if (Meteor.isClient) {
                 Meteor.call('insertStudentPlayer', result);
 
                 // Redirect user to game
-                window.location = "/commitscore/" + result.token;
+                window.location = "/commitscore/" + result.token + "/253";
             }
         }
     });
@@ -90,7 +90,7 @@ if (Meteor.isServer) {
                 email: result.doc.email,
                 token: result.token,
                 name: result.doc.name,
-                round: 0,
+                round: Config.get("roundCounter"),
                 score: 0
             });
         }
