@@ -1,0 +1,32 @@
+body {
+	background-color: black;
+}
+
+.center img {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	padding: 10px;
+}
+
+.containerdiv {
+	text-align: center;
+	padding: 10px;
+}
+
+.titleregister {
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: .3em;
+    margin: 0 0 .25em;
+    text-align: center;
+    text-indent: .3em;
+    text-transform: uppercase;
+    color: white;
+}
+
+.btnregister {
+	color: black;
+	background-color: #f8be22;
+	border-color: #f8b322;
+}

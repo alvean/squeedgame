@@ -10,3 +10,4 @@ meteor-platform
 
 iron:router
 aldeed:autoform
+mizzao:bootstrap-3
