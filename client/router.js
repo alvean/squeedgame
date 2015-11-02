@@ -1,4 +1,4 @@
-Router.route('/commitscore', {
+/*Router.route('/commitscore', {
     template:'commitscore',
     path:'/commitscore/:_GameId',
     data: function(){
@@ -6,3 +6,4 @@ Router.route('/commitscore', {
         return gameToken;
     }
 });
+*/

@@ -48,6 +48,7 @@ if (Meteor.isClient) {
                 Meteor.call('insertStudentPlayer', result);
 
                 // Redirect user to game
+                // 10.20.30.158:3000/games/88?t=
                 window.location = "/commitscore/" + result.token + "/253";
             }
         }
@@ -60,39 +61,3 @@ if (Meteor.isClient) {
     });
 }
 
-if (Meteor.isServer) {
-    Meteor.methods({
-        submitRegistrationForm: function(doc) {
-            check(doc, Schema.registrationSchema);
-
-            var playerToken = Meteor.uuid();
-            return {token: playerToken, doc: doc};
-        }
-    });
-
-    Meteor.methods({
-        insertStudentPlayer: function(result) {
-            console.log("Insert student/player", result);
-
-            Students.update(
-                {email: result.doc.email},
-                {
-                    name: result.doc.name,
-                    phone: result.doc.phone,
-                    email: result.doc.email,
-                    prog: result.doc.prog,
-                    focus: result.doc.focus
-                },
-                { upsert: true }
-            );
-
-            Players.insert({
-                email: result.doc.email,
-                token: result.token,
-                name: result.doc.name,
-                round: Config.get("roundCounter"),
-                score: 0
-            });
-        }
-    });
-}
