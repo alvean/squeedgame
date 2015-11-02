@@ -5,32 +5,25 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
 </head>
 
-<template name="leaderboard">
+<template name="admin">
     <div class="outer">
         <div class="logo"></div>
-        <h1 class="title">Leaderboard</h1>
+        <h1 class="title">Admin</h1>
 
         <div class="subtitle">Squeed Date-IT</div>
 
+        <h2>Current round {{currentRound}}</h2>
         <ol class="leaderboard">
-            {{#each players}}
+            {{#each currentRoundPlayers}}
             {{> player}}
             {{/each}}
         </ol>
 
-        {{#if selectedName}}
-        <div class="details">
-            <div class="name">{{selectedName}}</div>
-            <button class="inc">Add 5 points</button>
-        </div>
-        {{/if}}
+        <h2>Previous round</h2>
+        <ol class="leaderboard">
+            {{#each previousRoundPlayers}}
+            {{> player}}
+            {{/each}}
+        </ol>
     </div>
 </template>
-
-<template name="player">
-    <li class="player {{selected}}">
-        <span class="name">Player</span>
-        <span class="score">{{score}}</span>
-    </li>
-</template>
-
