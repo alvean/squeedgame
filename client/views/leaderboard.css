@@ -22,7 +22,7 @@ body {
 
 .outer {
     margin: 0 auto;
-    max-width: 480px;
+    max-width: 450px;
     text-align: center;
 }
 
@@ -64,12 +64,12 @@ body {
 
 .player {
     border-bottom: 1px solid #f1f1f1;
-    cursor: pointer;
     padding: .5em 0;
     position: relative;
     overflow: hidden;
     transition: background 300ms ease-out;
-    border-left: 4px solid white;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
 }
 
 .player:before {
@@ -77,17 +77,11 @@ body {
     content: counter(ol-counter);
     counter-increment: ol-counter;
     display: inline-block;
-    font-weight: 300;
-    line-height: 3em;
+    font-weight: 500;
+    line-height: 4em;
     text-align: center;
     vertical-align: middle;
     width: 3em;
-}
-
-.player .avatar {
-    display: inline-block;
-    margin-right: 1em;
-    vertical-align: middle;
 }
 
 .player .name {
@@ -95,15 +89,33 @@ body {
     font-size: 1.25em;
     font-weight: 300;
     vertical-align: middle;
+    color: whitesmoke;
+}
+
+.player .email {
+    display: inline-block;
+    font-size: 1.25em;
+    font-weight: 300;
+    vertical-align: middle;
+    color: #f8be22;
 }
 
 .player .score {
     color: white;
     display: block;
     float: right;
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: 600;
     line-height: 2.4em;
     padding-right: 1.25em;
 }
 
+.btnrestart {
+    color: black;
+    background-color: #f8be22;
+    border-color: #f8b322;
+}
+
+h2 {
+    color: #f8be22;
+}

@@ -1,7 +1,3 @@
-/**
- * Created by Alvean on 02/11/2015.
- */
-// On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
 
     Router.onBeforeAction(Iron.Router.bodyParser.urlencoded({
@@ -18,14 +14,6 @@ if (Meteor.isServer) {
 
 
     Meteor.startup(function () {
-
-    });
-
-
-    // Listen to incoming HTTP requests, can only be used on the server
-    WebApp.connectHandlers.use("/commitscore", function(req, res, next) {
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        return next();
     });
 
 
@@ -56,7 +44,7 @@ if (Meteor.isServer) {
                 email: result.doc.email,
                 token: result.token,
                 name: result.doc.name,
-                round: Config.get("roundCounter"),
+                round: Config.get("roundCounter",0),
                 score: 0
             });
         },
@@ -71,7 +59,7 @@ if (Meteor.isServer) {
                         token: player.token,
                         name: player.name,
                         round: player.round,
-                        score: retscore
+                        score: parseInt(retscore)
                     },
                     {update: true}
                 );
