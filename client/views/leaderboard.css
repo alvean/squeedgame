@@ -11,13 +11,32 @@ body {
     padding: 0;
 }
 
+.btnsubmitscore {
+    color: black;
+    background-color: #f8be22;
+    border-color: #f8b322;
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+}
+
+.btndontsubmitscore {
+    color: black;
+    background-color: red;
+    border-color: red;
+    width: 100px;
+    height: 40px;
+    margin: 20px;
+}
+
 .outer {
     margin: 0 auto;
     max-width: 480px;
+    text-align: center;
 }
 
 .logo {
-    background: url('leaderboard\squeed.svg');
+    background: url('squeed2.svg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -34,6 +53,7 @@ body {
     text-align: center;
     text-indent: .3em;
     text-transform: uppercase;
+    color: white;
 }
 
 .subtitle {
