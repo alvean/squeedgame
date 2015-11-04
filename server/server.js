@@ -5,13 +5,10 @@ if (Meteor.isServer) {
     }));
 
     Router.route('/commitscore', function() {
-        body = this.request.body;
-        console.log("Commit score for token: " + body.token + " Score: "  + body.score);
-        this.response.write("token: " + body.token + "  Score: " + body.score);
-        this.response.end("Call served");
         Meteor.call('insertPlayerScore', this.request.body.token, this.request.body.score);
+        this.response.writeHead(302, { 'Location': '/thankyou' });
+        this.response.end();
     }, {where: 'server'});
-
 
     Meteor.startup(function () {
     });
@@ -23,10 +20,8 @@ if (Meteor.isServer) {
 
             var playerToken = Meteor.uuid();
             return {token: playerToken, doc: doc};
-        }
-    });
+        },
 
-    Meteor.methods({
         insertStudentPlayer: function(result) {
             Students.update(
                 {email: result.doc.email},
