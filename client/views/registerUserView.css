@@ -9,6 +9,12 @@ body {
 	padding: 10px;
 }
 
+.outer {
+	margin: 0 auto;
+	max-width: 480px;
+	text-align: left;
+}
+
 .containerdiv {
 	text-align: center;
 	padding: 10px;

@@ -1,7 +1,7 @@
-Router.route("/admin");
+Router.route("/adminboard");
 
 if (Meteor.isClient) {
-    Template.admin.helpers({
+    Template.adminboard.helpers({
         currentRoundPlayers: function () {
             var currentRound = Config.get("roundCounter", 0);
             return Players.find({round: currentRound}, {sort: {score: -1, name: 1}, limit:5});
@@ -17,7 +17,7 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.admin.events({
+    Template.adminboard.events({
         'click .btnrestart': function () {
             Meteor.call('incrementRoundCounter');
         }

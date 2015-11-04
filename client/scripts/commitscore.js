@@ -1,7 +1,6 @@
 Router.route('/commitscore/:token/:score', {
     template: 'commitscore',
     data: function(){
-        //console.log(this.params.token + " " + this.params.score);
         Meteor.call('insertPlayerScore', this.params.token, this.params.score);
 
     }
@@ -16,8 +15,13 @@ Router.route('/commitscore/', { where: 'server' })
 */
 
 
-Template.commitscore.helpers ({
-    adrtoken: function(){
-    return window.location.pathname;
-    }
-});
+if (Meteor.isClient) {
+    Template.commitscore.events({
+        'click .btnsubmitscore': function () {
+            Router.go('/');
+        }
+    });
+}
+
+
+
