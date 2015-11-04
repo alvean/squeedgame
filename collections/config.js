@@ -6,6 +6,7 @@ Config = {
         if (doc) {
             return doc.value;
         } else {
+            this._collection.insert({"roundCounter":defaultValue});
             return defaultValue;
         }
     },
