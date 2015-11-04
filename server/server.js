@@ -3,10 +3,23 @@
  */
 // On server startup, create some players if the database is empty.
 if (Meteor.isServer) {
+
+    Router.onBeforeAction(Iron.Router.bodyParser.urlencoded({
+        extended: false
+    }));
+
+    Router.route('/commitscore', function() {
+        body = this.request.body;
+        console.log("Commit score for token: " + body.token + " Score: "  + body.score);
+        this.response.write("token: " + body.token + "  Score: " + body.score);
+        this.response.end("Call served");
+        Meteor.call('insertPlayerScore', this.request.body.token, this.request.body.score);
+    }, {where: 'server'});
+
+
     Meteor.startup(function () {
 
     });
-
 
 
     // Listen to incoming HTTP requests, can only be used on the server
@@ -67,19 +80,6 @@ if (Meteor.isServer) {
 
         incrementRoundCounter: function() {
             Config.inc("roundCounter");
-        },
-
-        logit: function(mess) {
-            console.log(mess);
         }
     });
-
-
-
-
-
-
-
-
-
 }
