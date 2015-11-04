@@ -65,6 +65,10 @@ if (Meteor.isServer) {
             }
         },
 
+        incrementRoundCounter: function() {
+            Config.inc("roundCounter");
+        },
+
         logit: function(mess) {
             console.log(mess);
         }

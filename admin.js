@@ -17,9 +17,9 @@ if (Meteor.isClient) {
         }
     });
 
-    Template.leaderboard.events({
-        'click .incRound': function () {
-            Config.inc("roundCounter");
+    Template.admin.events({
+        'click .btnrestart': function () {
+            Meteor.call('incrementRoundCounter');
         }
     });
 }
