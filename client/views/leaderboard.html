@@ -29,7 +29,14 @@
 
 <template name="player">
     <li class="player {{selected}}">
-        <span class="name">Player</span>
+        <span class="score">{{score}}</span>
+    </li>
+</template>
+
+<template name="admPlayer">
+    <li class="player {{selected}}">
+        <span class="name">{{name}}</span>
+        <span class="email">{{email}}</span>
         <span class="score">{{score}}</span>
     </li>
 </template>

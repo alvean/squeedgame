@@ -104,15 +104,6 @@ body {
     vertical-align: middle;
 }
 
-.player.selected {
-    background-color: #fefff4;
-    border-left: #eb5f3a 4px solid;
-}
-
-.player:hover {
-    background-color: #fefff4;
-}
-
 .details {
     overflow: hidden;
 }
