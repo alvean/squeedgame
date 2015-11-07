@@ -36,3 +36,17 @@ body {
 	background-color: #f8be22;
 	border-color: #f8b322;
 }
+
+.arcade-forge-logo {
+	display: block;
+	height: auto;
+	max-width: 25%;
+	min-width: 100px;
+}
+
+.squeed-logo {
+	display: block;
+	height: auto;
+	max-width: 50%;
+	min-width: 250px;
+}
