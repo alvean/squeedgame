@@ -11,6 +11,7 @@ if (Meteor.isServer) {
     }, {where: 'server'});
 
     Meteor.startup(function () {
+        Meteor.call('incrementRoundCounter');
     });
 
 
