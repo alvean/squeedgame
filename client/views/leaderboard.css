@@ -92,6 +92,14 @@ body {
     color: whitesmoke;
 }
 
+.player .prog {
+    display: inline-block;
+    font-size: 1.25em;
+    font-weight: 300;
+    vertical-align: middle;
+    color: white;
+}
+
 .player .email {
     display: inline-block;
     font-size: 1.25em;

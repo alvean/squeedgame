@@ -5,20 +5,22 @@ if (Meteor.isServer) {
     }));
 
     Router.route('/commitscore', function() {
-        Meteor.call('insertPlayerScore', this.request.body.token, this.request.body.score);
-        this.response.writeHead(302, { 'Location': '/thankyou' });
+        var ptoken =  this.request.body.token;
+        var pscore = atob(this.request.body.score);
+        Meteor.call('insertPlayerScore', ptoken, pscore);
+        this.response.writeHead(200, { 'Location': '/thankyou' });
         this.response.end();
     }, {where: 'server'});
 
     Meteor.startup(function () {
-        Meteor.call('incrementRoundCounter');
+        Meteor.call('initConfig');
     });
 
 
     Meteor.methods({
+
         submitRegistrationForm: function(doc) {
             check(doc, Schema.registrationSchema);
-
             var playerToken = Meteor.uuid();
             return {token: playerToken, doc: doc};
         },
@@ -40,6 +42,7 @@ if (Meteor.isServer) {
                 email: result.doc.email,
                 token: result.token,
                 name: result.doc.name,
+                prog: result.doc.prog,
                 round: Config.get("roundCounter",0),
                 score: 0
             });
@@ -55,6 +58,7 @@ if (Meteor.isServer) {
                         token: player.token,
                         name: player.name,
                         round: player.round,
+                        prog: player.prog,
                         score: parseInt(retscore)
                     },
                     {update: true}
@@ -64,6 +68,10 @@ if (Meteor.isServer) {
 
         incrementRoundCounter: function() {
             Config.inc("roundCounter");
+        },
+
+        initConfig: function() {
+            Config.init("roundCounter");
         }
     });
 }

@@ -7,7 +7,12 @@
     <h1 class="titleregister">Register</h1>
     <div class="subtitle">Enter your information</div>
     <div class="outer">
-        {{#autoForm id="registrationForm" schema=registrationSchema type="method" validation="blur" meteormethod="submitRegistrationForm" label-style="color:white"}} {{> afQuickField name="email" label-style="color:white"}} {{> afQuickField name="name" label-style="color:white"}} {{> afQuickField name="prog" label-style="color:white"}} {{> afQuickField name="focus" label-style="color:white"}} {{> afQuickField name="phone" label-style="color:white"}}
+        {{#autoForm id="registrationForm" schema=registrationSchema type="method" validation="blur" meteormethod="submitRegistrationForm" label-style="color:white"}}
+        {{> afQuickField name="email" label-style="color:white"}}
+        {{> afQuickField name="name" label-style="color:white"}}
+        {{> afQuickField name="prog" label-style="color:white"}}
+        {{> afQuickField name="focus" label-style="color:white"}}
+        {{> afQuickField name="phone" label-style="color:white"}}
         <div>
             <button type="submit" class="btn btnregister">Register</button>
         </div>

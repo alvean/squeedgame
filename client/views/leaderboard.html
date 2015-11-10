@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css' />
 </head>
+
 <template name="leaderboard">
     <div class="containerdiv center">
         <img  class="squeed-logo" src="squeed2.svg" alt="Squeed logo">
@@ -12,22 +13,20 @@
         <h1 class="title">Leaderboard</h1>
         <div class="subtitle">Squeed Date-IT</div>
         <ol class="leaderboard">
-            {{#each players}} {{> player}} {{/each}}
+            {{#each players}}
+            {{> player}}
+            {{/each}}
         </ol>
-        {{#if selectedName}}
-        <div class="details">
-            <div class="name">{{selectedName}}</div>
-            <button class="inc">Add 5 points</button>
-        </div>
-        {{/if}}
     </div>
     <div class="containerdiv center">
         <img class="arcade-forge-logo" src="arcadeforge.png" alt="Arcade Forge logo">
     </div>
 </template>
+
 <template name="player">
     <li class="player {{selected}}">
-        <span class="score">{{score}}</span>
+        <span class="prog">{{prog}}</span>
+        <span class="score">{{score1}}</span>
     </li>
 </template>
 
@@ -35,6 +34,7 @@
     <li class="player {{selected}}">
         <span class="name">{{name}}</span>
         <span class="email">{{email}}</span>
+        <span class="prog">{{prog}}</span>
         <span class="score">{{score}}</span>
     </li>
 </template>
