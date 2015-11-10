@@ -3,6 +3,8 @@ if (Meteor.isClient) {
         this.render("thankyou");
     });
 
+
+
     Template.thankyou.events({
         'click .btnsubmitscore': function () {
             Router.go('/');

@@ -6,7 +6,7 @@ if (Meteor.isServer) {
 
     Router.route('/commitscore', function() {
         var ptoken =  this.request.body.token;
-        var pscore = atob(this.request.body.score);
+        var pscore =  new Buffer(this.request.body.score, "base64").toString("utf-8");
         Meteor.call('insertPlayerScore', ptoken, pscore);
         this.response.writeHead(200, { 'Location': '/thankyou' });
         this.response.end();

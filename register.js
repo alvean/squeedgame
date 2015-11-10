@@ -9,7 +9,6 @@ if (Meteor.isClient) {
                 Meteor.call('insertStudentPlayer', result);
 
                 // Redirect user to game
-                //window.location = "/commitscore/" + result.token + "/253";
                 window.location = "http://www.arcadeforge.io/games/88/?t=" + result.token;
             }
         }
