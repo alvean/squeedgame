@@ -19,10 +19,6 @@ Config = {
         if (!doc) {
             this._collection.insert({key: name, value: 0});
         }
-    },
-
-    decode: function(code) {
-      return atob(code);
     }
 
 };

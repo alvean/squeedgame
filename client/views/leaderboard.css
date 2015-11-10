@@ -22,7 +22,7 @@ body {
 
 .outer {
     margin: 0 auto;
-    max-width: 450px;
+    max-width: 400px;
     text-align: center;
 }
 
@@ -55,7 +55,7 @@ body {
 }
 
 .leaderboard {
-    border-top: 1px solid #f1f1f1;
+/*    border-top: 1px solid #f1f1f1; */
     counter-reset: ol-counter;
     list-style-type: none;
     margin: 0 0 1.5em;
@@ -68,8 +68,8 @@ body {
     position: relative;
     overflow: hidden;
     transition: background 300ms ease-out;
-    border-left: 1px solid #ffffff;
-    border-right: 1px solid #ffffff;
+/*    border-left: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;*/
 }
 
 .player:before {
@@ -81,7 +81,7 @@ body {
     line-height: 4em;
     text-align: center;
     vertical-align: middle;
-    width: 3em;
+    width: 4em;
 }
 
 .player .name {
@@ -94,8 +94,8 @@ body {
 
 .player .prog {
     display: inline-block;
-    font-size: 1.25em;
-    font-weight: 300;
+    font-size: 1.75em;
+    font-weight: 600;
     vertical-align: middle;
     color: white;
 }

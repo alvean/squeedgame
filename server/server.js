@@ -19,6 +19,17 @@ if (Meteor.isServer) {
 
     Meteor.methods({
 
+        getLeaderboard: function(currentRound) {
+            console.log("yada");
+            colle = Players.aggregate([
+                            {$sort: {score: -1}},
+                            {$match: {"round": currentRound}},
+                            {$group: { _id: "$email", score: {$max: "$score"}}}
+                            ]);
+            console.log(colle);
+            return colle;
+        },
+
         submitRegistrationForm: function(doc) {
             check(doc, Schema.registrationSchema);
             var playerToken = Meteor.uuid();
