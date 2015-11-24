@@ -62,6 +62,8 @@ body {
     padding: 0;
 }
 
+
+
 .player {
     border-bottom: 1px solid #f1f1f1;
     padding: .5em 0;
@@ -70,6 +72,14 @@ body {
     transition: background 300ms ease-out;
 /*    border-left: 1px solid #ffffff;
     border-right: 1px solid #ffffff;*/
+}
+
+
+.player3 {
+    padding: .5em 0;
+    position: relative;
+    overflow: hidden;
+    transition: background 300ms ease-out;
 }
 
 .player:before {

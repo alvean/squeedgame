@@ -18,6 +18,15 @@
             {{/each}}
         </ol>
     </div>
+    <div class="outer">
+        <div class="title">Top 3 ever:</div>
+        <ol class="leaderboard">
+            {{#each max3players}}
+            {{> player}}
+            {{/each}}
+        </ol>
+    </div>
+
     <div class="containerdiv center">
         <img class="arcade-forge-logo" src="arcadeforge.png" alt="Arcade Forge logo">
     </div>
@@ -25,7 +34,7 @@
 
 <template name="player">
     <li class="player {{selected}}">
-        <span class="prog">{{prog}}</span>
+        <span class="name">{{name}}</span>
         <span class="score">{{score}}</span>
     </li>
 </template>

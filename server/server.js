@@ -8,7 +8,7 @@ if (Meteor.isServer) {
         var ptoken =  this.request.body.token;
         var pscore =  new Buffer(this.request.body.score, "base64").toString("utf-8");
         Meteor.call('insertPlayerScore', ptoken, pscore);
-        this.response.writeHead(200, { 'Location': '/thankyou' });
+        this.response.writeHead(302, { 'Location': '/thankyou' });
         this.response.end();
     }, {where: 'server'});
 
@@ -18,7 +18,7 @@ if (Meteor.isServer) {
 
 
     Meteor.methods({
-
+        /*
         getLeaderboard: function(currentRound) {
             console.log("yada");
             colle = Players.aggregate([
@@ -28,7 +28,7 @@ if (Meteor.isServer) {
                             ]);
             console.log(colle);
             return colle;
-        },
+        },*/
 
         submitRegistrationForm: function(doc) {
             check(doc, Schema.registrationSchema);
@@ -63,16 +63,15 @@ if (Meteor.isServer) {
             var player = Players.findOne({token: rettoken});
             if (player) {
                 Players.update (
-                    {_id: player._id},
+                    {token: player.token},
                     {
                         email: player.email,
-                        token: player.token,
                         name: player.name,
                         round: player.round,
                         prog: player.prog,
                         score: parseInt(retscore)
                     },
-                    {update: true}
+                    {upsert: true}
                 );
             }
         },
